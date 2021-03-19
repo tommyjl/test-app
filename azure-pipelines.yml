@@ -34,6 +34,9 @@ stages:
   jobs:
   - deployment: "Deploy"
     environment: "test-app"
-    steps: 
-    - script: echo "hello world"
-      displayName: "echo"
+    strategy:
+      runOnce:
+	deploy:
+	  steps: 
+	  - script: echo "hello world"
+	    displayName: "echo"
