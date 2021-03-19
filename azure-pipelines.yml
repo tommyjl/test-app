@@ -11,28 +11,28 @@ variables:
   modulePath: '$(GOPATH)/src/github.com/$(build.repository.name)' # Path to the module's code
 
 stages:
-- stage:
-    jobs:
-    - job:
-	steps: 
-	- task: GoTool@0
-	  inputs:
-	    version: '1.16.2'
-	- task: Go@0
-	  displayName: "Get dependencies"
-	  inputs:
-	    command: 'get'
-	    arguments: '-d'
-	    workingDirectory: '$(System.DefaultWorkingDirectory)'
-	- task: Go@0
-	  displayName: "Build"
-	  inputs:
-	    command: 'build'
-	    workingDirectory: '$(System.DefaultWorkingDirectory)'
+- stage: "Build"
+  jobs:
+  - job: "Build"
+    steps: 
+    - task: GoTool@0
+      inputs:
+	version: '1.16.2'
+    - task: Go@0
+      displayName: "Get dependencies"
+      inputs:
+	command: 'get'
+	arguments: '-d'
+	workingDirectory: '$(System.DefaultWorkingDirectory)'
+    - task: Go@0
+      displayName: "Build"
+      inputs:
+	command: 'build'
+	workingDirectory: '$(System.DefaultWorkingDirectory)'
 
-- stage:
-    jobs:
-    - job:
-	steps: 
-	- script: echo "hello world"
-	  displayName: "echo"
+- stage: "Echo"
+  jobs:
+  - job: "Echo"
+    steps: 
+    - script: echo "hello world"
+      displayName: "echo"
