@@ -17,18 +17,18 @@ stages:
     steps: 
     - task: GoTool@0
       inputs:
-	version: '1.16.2'
+        version: '1.16.2'
     - task: Go@0
       displayName: "Get dependencies"
       inputs:
-	command: 'get'
-	arguments: '-d'
-	workingDirectory: '$(System.DefaultWorkingDirectory)'
+        command: 'get'
+        arguments: '-d'
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
     - task: Go@0
       displayName: "Build"
       inputs:
-	command: 'build'
-	workingDirectory: '$(System.DefaultWorkingDirectory)'
+        command: 'build'
+        workingDirectory: '$(System.DefaultWorkingDirectory)'
 
 - stage: "Echo"
   jobs:
