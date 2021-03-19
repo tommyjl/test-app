@@ -33,6 +33,7 @@ stages:
 - stage: "Echo"
   jobs:
   - job: "Echo"
+    environment: "test-app"
     steps: 
     - script: echo "hello world"
       displayName: "echo"
