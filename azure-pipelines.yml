@@ -34,20 +34,24 @@ stages:
   jobs:
   - deployment: "Deploy"
     environment: "test-app"
+    variables:
+    - group: "my-app-development"
     strategy:
       runOnce:
         deploy:
           steps: 
-          - script: echo "hello world"
+          - script: echo "hello $(MyAppName)"
             displayName: "echo"
 
 - stage: "Production"
   jobs:
   - deployment: "Deploy"
     environment: "test-app-production"
+    variables:
+    - group: "my-app-production"
     strategy:
       runOnce:
         deploy:
           steps: 
-          - script: echo "hello world"
+          - script: echo "hello $(MyAppName)"
             displayName: "echo"
