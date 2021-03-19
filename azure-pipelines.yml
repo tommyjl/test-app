@@ -32,7 +32,7 @@ stages:
 
 - stage: "Echo"
   jobs:
-  - job: "Echo"
+  - deployment: "Deploy"
     environment: "test-app"
     steps: 
     - script: echo "hello world"
