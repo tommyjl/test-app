@@ -36,7 +36,7 @@ stages:
     environment: "test-app"
     strategy:
       runOnce:
-	deploy:
-	  steps: 
-	  - script: echo "hello world"
-	    displayName: "echo"
+        deploy:
+          steps: 
+          - script: echo "hello world"
+            displayName: "echo"
